@@ -28,7 +28,7 @@ jobs:
           args: -file-line-error -halt-on-error -interaction=nonstopmode -pdflatex -shell-escape
 
       - name: Prepare tarball with gzip
-        run: tar -zcvf FytcNote-2024-1.tar.gz codes data figures *.tex *.bib *.bbl LICENSE
+        run: tar -zcvf FytcNote-2024-1.tar.gz data *.tex *.bib *.bbl LICENSE
 
       - name: Release
         uses: softprops/action-gh-release@v1
