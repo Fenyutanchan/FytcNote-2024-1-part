@@ -1,0 +1,41 @@
+# FytcNote-2024-1 (c) by Quan-feng WU <wuquanfeng@ihep.ac.cn>
+# 
+# FytcNote-2024-1 is licensed under a
+# Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License.
+# 
+# You should have received a copy of the license along with this
+# work. If not, see <https://creativecommons.org/licenses/by-nc-nd/4.0/>.
+
+name: Release
+on:
+  push:
+    tags:
+      - "v*.*.*"
+
+jobs:
+  LaTeX-Building:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.inputs.tag }}
+
+      - name: Build LaTeX
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: main.tex
+          args: -file-line-error -halt-on-error -interaction=nonstopmode -pdflatex -shell-escape
+
+      - name: Prepare tarball with gzip
+        run: tar -zcvf FytcNote-2024-1.tar.gz codes data figures *.tex *.bib *.bbl LICENSE
+
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          discussion_category_name: Announcements
+          draft: true
+          files: |
+            main.pdf
+            FytcNote-2024-1.tar.gz
+          token: ${{ secrets.PRIVATE_RELEASE_TOKEN }}
