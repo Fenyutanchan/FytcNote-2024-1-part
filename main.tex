@@ -12,7 +12,7 @@
 \usepackage{authblk}
 \usepackage[sorting=none, style=numeric-comp]{biblatex}
     \addbibresource{references.bib}
-\usepackage[compat=1.1.0]{tikz-feynhand}
+\usepackage{fontawesome5}
 \usepackage[a4paper, margin=2.5cm]{geometry}
 \usepackage[colorlinks=true]{hyperref}
 \usepackage{pgfplots}
@@ -21,6 +21,7 @@
 \usepackage{slashed}
 \usepackage{subcaption}
 \usepackage{tensor}
+\usepackage[compat=1.1.0]{tikz-feynhand}
 
 \input{LaTeX-commands}
 \input{math-commands}
@@ -29,7 +30,7 @@
 \author[a]{Quan-feng WU\email{wuquanfeng@ihep.ac.cn}}
 \affil[a]{Institute of High Energy Physics, Chinese Academy of Sciences, Beijing 100049, China}
 \affil[b]{University of Chinese Academy of Sciences, Beijing 100049, China}
-\date{[FytcNote-2024-1-part] Version 1.0.0 built on May 30, 2024}
+\date{[FytcNote-2024-1-part] Version 1.0.1 built on June 23, 2024\license}
 
 \begin{document}
     \maketitle
@@ -59,7 +60,7 @@
             \label{eq:Boltzmann-equation}
         \end{equation}
         where $n_\phi(t)$ is the number density of the scalar boson $\phi$, $H := \dot{a} / a$ is the Hubble parameter, and $C[f_\phi]$ is the collision term with the distribution function $f_\phi(\vb{x}; \vb{p}; t)$ for the scalar boson $\phi$.
-        The collision term $C[f_\phi]$ is the sum of all possible processes that can change the number density of the scalar boson $\phi$, i.e.,
+        The collision term $C[f_\phi]$ is the sum of all possible processes that can change the number density of the scalar boson $\phi$, \ie,
         \begin{equation}
             C[f_\phi] = \sum_p C_p[f_\phi]
         \end{equation}
@@ -83,7 +84,7 @@
             Then the identical particle factor are given by $S = \abs{n_\mathrm{t} - 1}! n_1! n_2! \cdots n_\ell! \abs{m_\mathrm{t} - 1}! m_1! m_2! \cdots m_k!$, where the convention $0! = 1$ is used.
             The reason for the factors of $\abs{n_\mathrm{t} - 1}!$ and $\abs{m_\mathrm{t} - 1}!$ is that we would like to consider $n_\mathrm{t} m_\mathrm{t}$ ($n_\mathrm{t}$ if $m_\mathrm{t} = 0$, or $m_\mathrm{t}$ if $n_\mathrm{t} = 0$) copies of the process.
         }, and $s_i$ is the statistics factor for the particle $i$ ($s_i = -1$ for fermions and $s_i = +1$ for bosons).
-        Here the quantum state summation $\overline{\sum}$ denotes the sum over the left and right quantum states\footnote{In general, most of the textbooks on cosmology \cite{Dodelson:2020MC, Baumann:2022mni} use the degeneracy factor $g$ to denote the number of internal degrees of freedom for a particle.}, e.g., the spin states for the particles.
+        Here the quantum state summation $\overline{\sum}$ denotes the sum over the left and right quantum states\footnote{In general, most of the textbooks on cosmology \cite{Dodelson:2020MC, Baumann:2022mni} use the degeneracy factor $g$ to denote the number of internal degrees of freedom for a particle.}, \eg, the spin states for the particles.
         If we do not consider the quantum state summation, we have
         \begin{equation}
             \abs{\mathcal{M}_{\phi + \qty{n} \leftarrow \qty{m}}}^2 \equiv \abs{\mathcal{M}_{\phi + \qty{n} \to \qty{m}}}^2
@@ -185,7 +186,7 @@
             \end{aligned}
         \end{equation}
 
-        According to the assumption that the initial abundance of the scalar boson $\phi$ in the early universe is zero at a sufficiently high temperature, we can simply forbid the scalar boson decay into electron-positron pair, i.e., $f_\phi = 0$ at the sufficiently high temperature.
+        According to the assumption that the initial abundance of the scalar boson $\phi$ in the early universe is zero at a sufficiently high temperature, we can simply forbid the scalar boson decay into electron-positron pair, \ie, $f_\phi = 0$ at the sufficiently high temperature.
         This assumption works well if the scalar boson $\phi$ is not in the thermal equilibrium with electrons and positrons. 
         Therefore, we have
         \begin{equation}
@@ -229,13 +230,13 @@
                 \begin{loglogaxis}[
                     xlabel = {$a$},
                     ylabel = {$n_\phi a^3$ [MeV$^{-3}$]},
-                    xmin = .9, xmax = 4e6,
+                    xmin = .9, xmax = 1e7,
                     % xtick = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10},
                     % xticklabel={
                     %     \pgfmathparse{exp(\tick)}%
                     %     \pgfmathprintnumber{\pgfmathresult}
                     % },
-                    ymin = 1e-5, ymax = 3e9,
+                    ymin = 1e-5, ymax = 3e8,
                     % ytick = {1e-10, 1e-9, 1e-8, 1e-7, 1e-6},
                     grid = both,
                     grid style = {solid, gray!30},
@@ -275,7 +276,7 @@
                 I_3 = \frac{4 \pi}{(2 \pi)^3} \int_0^\infty \frac{\mathrm{p}_\phi^2 \dd{\mathrm{p}_\phi}}{2 E_\phi} \int \frac{\dd[3]{\vb{p}_1}}{\qty(2 \pi)^3 2 E_1} \frac{\dd[3]{\vb{p}_2}}{\qty(2 \pi)^3 2 E_2} \qty(2 \pi)^4 \delta^{(4)}\qty(p_\phi - p_1 - p_2),
             \end{equation}
             where $\mathrm{p}_i := \abs{\vb{p}_i}$.
-            Without loss of generality, we can choose the $z$-axis as the direction of $\vb{p}_\phi$, i.e., $p_\phi^\mu = \qty(E_\phi, 0, 0, \mathrm{p}_\phi)$.
+            Without loss of generality, we can choose the $z$-axis as the direction of $\vb{p}_\phi$, \ie, $p_\phi^\mu = \qty(E_\phi, 0, 0, \mathrm{p}_\phi)$.
             The integration over $\vb{p}_2$ with the three-dimensional delta function gives trivially
             \begin{equation}
                 \int \frac{\dd[3]{\vb{p}_2}}{\qty(2 \pi)^3 2 E_2} \qty(2 \pi)^4 \delta^{(4)}\qty(p_\phi - p_1 - p_2) = \frac{2 \pi}{2 E_2} \delta(E_\phi - E_1 - E_2).
